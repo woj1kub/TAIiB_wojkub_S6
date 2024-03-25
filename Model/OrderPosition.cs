@@ -18,6 +18,9 @@ namespace Model
         public int OrderID { get; set; }
         [ForeignKey(nameof(OrderID))]
         public Order? Order { get; set; }
+        public int ProduktID { get; set; }
+        [ForeignKey(nameof(ProduktID))]
+        public Produkt? Produkt { get; set; }
         public int Amount { get; set; }
         public double Price { get; set; }
 
@@ -25,6 +28,11 @@ namespace Model
         {
             builder
             .HasMany(x => x.BasketPositions)
+            .WithOne(x => x.Produkt)
+            .OnDelete(DeleteBehavior.SetNull); //Uszczegółowienie charakteru relacji
+
+            builder
+            .HasMany(x => x.OrderPositions)
             .WithOne(x => x.Produkt)
             .OnDelete(DeleteBehavior.SetNull); //Uszczegółowienie charakteru relacji
         }
