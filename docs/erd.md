@@ -29,6 +29,7 @@ erDiagram
     OrderPosition {
         INT ID PK
         INT OrderID FK
+        INT ProductID FK
         INT Amount
         DECIMAL Price
     }

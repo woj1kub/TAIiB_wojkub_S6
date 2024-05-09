@@ -6,6 +6,6 @@
         void RemoveProduct(int productId, int userId);
         void RemoveAllProducts(int userId);
         void EditProductAmount(int userId, int productId, int amount);
-        IEnumerable<> GetBasketContents(int userId);
+        IEnumerable<BasketPositionDTO> GetBasketContents(int userId);
     }
 }
